@@ -1,0 +1,50 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--<meta name="viewport" content="width=device-width">-->
+
+<title>假装有title</title>
+<body>
+	<h1> 大爷的 </h1>
+	<button onclick="test()"> 测试 js 交互， 把那个 10 变成 300 </button>
+    <button onclick="showAlert()"> 测试alert </button>
+    <button onclick="showConfirm()"> 测试 confirm </button>
+    <button onclick="showPrompt()"> 测试 prompt </button>
+	<button onclick="addNum()" id="lbl"> 10 </button>
+	<label id="lbla">1</label>
+    <a href="https://www.douban.com" target="_blank">豆瓣</a>
+    <a href="https://itunes.apple.com/cn/app/id414478124?mt=8">微信</a>
+	<script type="text/javascript">
+		function test() {
+            
+            var message = {
+            	action: "test",
+            	params: null,  // json 对象，分享的参数，和那份文档一样
+            	callback: "newNum(*)" // 如果有参数，那么就是 callback(*)
+            };
+            window.webkit.messageHandlers.Test.postMessage(message);
+		}
+    	
+    	function addNum() {
+    		document.getElementById('lbl').innerHTML = "100";
+    	}
+    
+    function newNum(var1) {
+        document.getElementById('lbl').innerHTML = var1+""
+    }
+    
+    function showAlert() {
+        alert("就是弹个窗");
+    }
+    
+    function showConfirm() {
+        // 一个确定取消弹窗。扑街啦
+        confirm("爱我吗？");
+    }
+    
+    function showPrompt() {
+        // 文本输入框
+        prompt("这个是提示","输入你要的");
+    }
+
+	</script>
+    
+</body>
